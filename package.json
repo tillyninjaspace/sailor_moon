@@ -22,6 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1"
   },
+  "proxy": "http://localhost:4000",
   "browserslist": {
     "production": [
       ">0.2%",

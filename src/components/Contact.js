@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
 
+//new
+// const CONTACT_URL = process.env.CONTACT_URL || 'http://localhost:4000';
+
+//end of new
+
 const ContactForm = () => {
     const [ name, setName ] = useState('')
     const [ email, setEmail ] = useState('')
@@ -10,7 +15,10 @@ const ContactForm = () => {
         event.preventDefault()
         console.log("submit", name, email, message)
         setStatus("Sending...");
-        let response = await fetch("http://localhost:4000/send", {
+        // let response = await fetch(`https://localhost:4000/send`, {
+            // let response = await fetch(`${CONTACT_URL}/send`, {
+            let response = await fetch(`/send`, {
+                //testing above
         method: "POST",
         headers: {
             "Content-Type": "application/json"
