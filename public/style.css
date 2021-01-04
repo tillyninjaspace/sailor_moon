@@ -154,3 +154,13 @@
   button:hover {
     background-color: rgb(94, 103, 105);
   }
+
+  .loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom:0;
+    backdrop-filter: blur(3px);
+    background: rgba(0, 0, 0, 0.4);
+  }
