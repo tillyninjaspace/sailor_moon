@@ -15,9 +15,12 @@ const ContactForm = () => {
         event.preventDefault()
         console.log("submit", name, email, message)
         setStatus("Sending...");
-        // let response = await fetch(`https://localhost:4000/send`, {
+
+        //note to self, localhost cannot be https and it needs to be on localhost for 
+        //dev but it doesn't work for deployed heroku
+        // let response = await fetch(`http://localhost:4000/api/send`, {
             // let response = await fetch(`${CONTACT_URL}/send`, {
-            let response = await fetch(`/send`, {
+            let response = await fetch('/api/send', {
                 //testing above
         method: "POST",
         headers: {

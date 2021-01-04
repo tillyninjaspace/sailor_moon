@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "start node": "node index.js",
+    "start:client": "react-scripts start",
+    "start": "node index.js",
     "start:dev": "nodemon index.js",
     "build": "react-scripts build"
   },
@@ -22,6 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1"
   },
+  "proxy": "http://localhost:4000",
   "browserslist": {
     "production": [
       ">0.2%",
