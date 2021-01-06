@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-//new
-// const CONTACT_URL = process.env.CONTACT_URL || 'http://localhost:4000';
-
-//end of new
+//new for REDUX
+    import {useSelector, useDispatch} from 'react-redux';
+    import {increment, decrement} from '../actions'
+//end of NEW for REDUX
 
 const ContactForm = () => {
     const [ name, setName ] = useState('')
@@ -11,17 +11,22 @@ const ContactForm = () => {
     const [ message, setMessage ] = useState('')
     const [ status, setStatus ] = useState('Send')
 
+    //new for REDUX
+    const counter = useSelector(state => state.counter);
+    const isLogged = useSelector(state => state.loggedReducer);
+    const dispatch = useDispatch()
+
+    //THUNK
+    const sailorMoonProducts = useSelector(state => state.data);
+    console.log("Sailor Moon Products", sailorMoonProducts)
+    //end of new for REDUX
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         console.log("submit", name, email, message)
         setStatus("Sending...");
 
-        //note to self, localhost cannot be https and it needs to be on localhost for 
-        //dev but it doesn't work for deployed heroku
-        // let response = await fetch(`http://localhost:4000/api/send`, {
-            // let response = await fetch(`${CONTACT_URL}/send`, {
-            let response = await fetch('/api/send', {
-                //testing above
+        let response = await fetch('/api/send', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -53,6 +58,19 @@ const ContactForm = () => {
             <input required placeholder='Type Message Here' value={message} onChange={(event) => setMessage(event.target.value)}></input>
             <button>{status}</button>
         </form>
+
+        {/* for redux */}
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            <h2>Redux Test Section</h2>
+            <h2>Counter: {counter}</h2>
+            <button onClick={()=> dispatch(increment())}>+</button>
+            <button onClick={()=> dispatch(decrement())}>-</button>
+            {isLogged ? 
+            <h3>Valuable Information if Logged In</h3>
+            : '' }
+            </div>
+        {/* end of for redux */}
+
     </div>   
     )
 };
