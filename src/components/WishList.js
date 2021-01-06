@@ -6,7 +6,7 @@ const WishList = () => {
     console.log("Sailor Moon ITEMS for Wish List", sailorMoonItems)
     return (
         <>
-            <h2>My Wishlist</h2>
+            <h2>My Wishlist (still under development...)</h2>
             {/* <div style={{border: "1px solid black"}}> */}
              { 
                 sailorMoonItems.results.map((star) => 

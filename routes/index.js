@@ -5,8 +5,6 @@ apiRouter.get('/sailormoon', (req,res, next) => {
     res.send({message: 'Prism Power!'})
 });
 
-
-//new
 const EMAIL = process.env.EMAIL
 const PASSWORD = process.env.PASSWORD
 
@@ -49,9 +47,4 @@ apiRouter.post("/send", (req, res) => {
     });
 });
 
-//end of new
-
 module.exports = apiRouter
-
-
-// Test this on browswer to work: http://localhost:4000/api/sailormoon

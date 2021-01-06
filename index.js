@@ -2,28 +2,26 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 const bodyParser = require('body-parser')
-const nodemailer = require('nodemailer')
 
 const server = express();
 require('dotenv').config();
 
 server.use(cors());
+
 server.use(express.json());
+
 server.use(bodyParser.json());
+
 server.use("/", router);
 
-
-//new routes
 server.use('/api', require('./routes'));
 
-//adding because of heroku error
 const path = require('path');
 server.use(express.static(path.join(__dirname, 'build')));
 
 server.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
-//end of addition
 
 
 //need BELOW

@@ -8,7 +8,6 @@ const Main = () => {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        // fetchProducts()
         dispatch(fetchProducts())
     }, []);
 
@@ -20,13 +19,5 @@ const Main = () => {
         )
 }
 
-// const mapStateToProps = state => ({
-//     item: state.products.item,
-//     loading: state.products.loading,
-//     error: state.products.error
-//   });
-
   
 export default Main;
-// connect(mapStateToProps)
-// (Main);

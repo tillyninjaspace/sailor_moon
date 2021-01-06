@@ -10,5 +10,3 @@ const Loading = () => {
 };
 
 export default Loading;
-
-// <img src="/sailormoonfanslogo.png"/>
