@@ -106,7 +106,7 @@ const App = () => {
             <h1>Pretty Sailor Scouts</h1>
             <div className="navWrapper">
             <NavLink to="/sailor-moon-reviews" className="nav">Sailor Moon TV and Movie Scores</NavLink>
-            <a className="nav" href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Sailor Moon Merchandise</a>
+            {/* <a className="nav" href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Sailor Moon Merchandise</a> */}
             <NavLink to="/wishlist" className="nav">My Wishlist</NavLink>
             <NavLink to="/contact" className="nav">Contact</NavLink>
             </div>
