@@ -61,7 +61,10 @@ import WishList from './components/WishList'
     import { composeWithDevTools } from 'redux-devtools-extension';     
     import allReducers from './reducers';
     import { Provider } from 'react-redux';
-
+    //for fetchData
+    import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from './actions/fetchData';
+//end for fetchData
     const composedEnhancer = composeWithDevTools(applyMiddleware(thunk))
 
     const store = createStore(
@@ -69,10 +72,23 @@ import WishList from './components/WishList'
         composedEnhancer
         // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         )
+
+ 
     //end of REDUX EXAMPLE 2
 
 const App = () => {
     const [ sailorMoonList, setSailorMoonList ] = useState([])
+
+    //redux
+
+    const dataList = useSelector(state => state.data.item);
+    const dispatch = useDispatch()
+
+    useEffect( () => {
+        dispatch(fetchProducts())
+    }, []);   
+
+    //end of redux
 
     async function getSailorMoon() {
         // const URL = `https://api.jikan.moe/v3/search/anime?q=sailormoon`
@@ -101,9 +117,11 @@ const App = () => {
     
 
     return (
+       
         <div className="headerDiv">
             <p style={{textAlign: "center", maxHeight: "200px"}}><img src="/sailormoonfanslogo.png" /></p>
             <h1>Pretty Sailor Scouts</h1>
+            {/* <p>{dataList}</p> */}
             <div className="navWrapper">
             <NavLink to="/sailor-moon-reviews" className="nav">Sailor Moon TV and Movie Scores</NavLink>
             {/* <a className="nav" href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Sailor Moon Merchandise</a> */}
@@ -111,7 +129,7 @@ const App = () => {
             <NavLink to="/contact" className="nav">Contact</NavLink>
             </div>
 
-            <Main />
+            {/* <Main /> */}
             <Route exact path="/sailor-moon-reviews"><Stars sailorMoonList={sailorMoonList}/></Route>
             <Route path="/contact"><Contact/></Route>
             <Route exact path="/wishlist"><WishList/></Route>
@@ -120,15 +138,18 @@ const App = () => {
             
             <Footer />
         </div>
+       
     )
 };
 
 ReactDOM.render(
-    <Router>
     <Provider store={store}>
+    <Router>
+
     <App />
-    </Provider>
-    </Router>,
+
+    </Router>
+    </Provider>,
     document.getElementById('root')
 );
 

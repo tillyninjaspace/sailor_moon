@@ -49,7 +49,7 @@ const ContactForm = () => {
 
     return (
     <div>   
-        <form style={{margin: "1em"}} onSubmit={handleSubmit}>
+        <form className="contactUsForm" style={{margin: "1em"}} onSubmit={handleSubmit}>
             <label>Name</label>
             <input required placeholder='Your Name' value={name} onChange={(event) => setName(event.target.value)}></input>
             <label>Email Address</label>

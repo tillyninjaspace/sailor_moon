@@ -73,12 +73,12 @@ const Star = ({sailorMoonList}) => {
             <p>Type: {star.type}</p>
             <p>Air Date: {star.aired.string} </p>
 
-            <p style={{textAlign: "center"}} className="nav"><a style={{textDecoration: "none"}} href={star.url} target="_blank">See Full Synopsis</a></p>
-
             
             <p style={{textAlign: "center"}} className="nav"><a style={{textDecoration: "none"}} href=
             "https://www.amazon.com/s?k=sailor+moon+movie+and+shows&amp;ref=nb_sb_noss&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=4032d4e98546b34ef7ff608b3f8e8405&camp=1789&creative=9325"
-            target="_blank">Compare Sailor Moon DVDs and Blu-rays like {star.title} on Amazon</a></p>
+            target="_blank">Find Sailor Moon items like {star.title} on Amazon</a></p>
+
+            <p style={{textAlign: "center"}} className="nav"><a style={{textDecoration: "none"}} href={star.url} target="_blank">See Full Details</a></p>
             </>
             }
 
