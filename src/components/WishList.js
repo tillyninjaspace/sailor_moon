@@ -61,11 +61,11 @@ const WishList = () => {
         <>
             <h2>My Wishlist</h2>
             < GuestWishes/>
-            <h3 style={{textAlign: "center", marginBottom: "5px"}}><a href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Find Sailor Moon Merchandise on Amazon</a></h3>
+            <h3 style={{textAlign: "center", margin: "5px"}}><a href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Find Sailor Moon Merchandise on Amazon</a></h3>
             <div style={{border: "1px solid white"}} className="pickListWrapper">
              { sailorMoonItems.results && 
                 sailorMoonItems.results.map((star) => 
-                    <div key={star.mal_id} style={{border: "1px solid black"}}
+                    <div key={star.mal_id} style={{border: "1px solid white"}}
                     className="pickList">
                     <p>{star.title} </p>
                     <img src={star.image_url}/>

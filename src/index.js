@@ -77,19 +77,20 @@ import { fetchProducts } from './actions/fetchData';
     //end of REDUX EXAMPLE 2
 
 const App = () => {
-    const [ sailorMoonList, setSailorMoonList ] = useState([])
+
 
     //redux
-
     const dataList = useSelector(state => state.data.item);
     const dispatch = useDispatch()
 
     useEffect( () => {
         dispatch(fetchProducts())
     }, []);   
-
     //end of redux
 
+
+//Original Fetch
+    const [ sailorMoonList, setSailorMoonList ] = useState([])
     async function getSailorMoon() {
         // const URL = `https://api.jikan.moe/v3/search/anime?q=sailormoon`
         const URL =`https://api.jikan.moe/v3/search/anime?q=sailormoon&limit=17`
@@ -114,7 +115,7 @@ const App = () => {
             console.log(error)
         })
     }, []);
-    
+//end of Original Fetch    
 
     return (
        
@@ -123,14 +124,17 @@ const App = () => {
             <h1>Pretty Sailor Scouts</h1>
             {/* <p>{dataList}</p> */}
             <div className="navWrapper">
-            <NavLink to="/sailor-moon-reviews" className="nav">Sailor Moon TV and Movie Scores</NavLink>
+            <NavLink to="/" className="nav">Home</NavLink>
+            <NavLink to="/sailor-moon-reviews" className="nav">Sailor Moon Scores</NavLink>
             {/* <a className="nav" href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Sailor Moon Merchandise</a> */}
             <NavLink to="/wishlist" className="nav">My Wishlist</NavLink>
             <NavLink to="/contact" className="nav">Contact</NavLink>
+            
             </div>
 
             {/* <Main /> */}
-            <Route exact path="/sailor-moon-reviews"><Stars sailorMoonList={sailorMoonList}/></Route>
+            <Route exact path="/"><Main /></Route>
+            <Route exact path="/sailor-moon-reviews"><Stars/></Route>
             <Route path="/contact"><Contact/></Route>
             <Route exact path="/wishlist"><WishList/></Route>
             <Route path="/sailor-moon-reviews/:starId"><Star sailorMoonList={sailorMoonList}/></Route>

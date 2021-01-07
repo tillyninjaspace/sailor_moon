@@ -14,11 +14,11 @@ const Footer = () => {
     return (
         <div style ={{border: '1px solid white', margin: "1em"}}>
             <p style={{color: "white", padding: "1em", display: "flex", justifyContent: "space-around"}}>
-                <a href='https://github.com/tillyninjaspace' target="_blank">Developer Details: Tilly Wright</a>
-                <span style={{marginLeft: "10px"}}>Utilized Jikan API, Node, Express, Cors, Redux, React Redux, Nodemailer, dotenv, CSS and HTML</span></p>
+                <a href='https://github.com/tillyninjaspace' target="_blank">Developer Details</a>
+                <span style={{marginLeft: "10px"}}>Utilized Jikan API, Node, Express, Cors, Redux, Nodemailer, dotenv, CSS and HTML</span></p>
 
                 {/* test REDUX */}
-               <p>Counter test: {counter}</p>
+               {/* <p>Counter test: {counter}</p> */}
 
                 {/* end of test REDUX */}
         </div>

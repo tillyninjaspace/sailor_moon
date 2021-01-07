@@ -60,7 +60,7 @@ const ContactForm = () => {
         </form>
 
         {/* for redux */}
-            <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            {/* <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
             <h2>Redux Test Section</h2>
             <h2>Counter: {counter}</h2>
             <button onClick={()=> dispatch(increment())}>+</button>
@@ -68,7 +68,7 @@ const ContactForm = () => {
             {isLogged ? 
             <h3>Valuable Information if Logged In</h3>
             : '' }
-            </div>
+            </div> */}
         {/* end of for redux */}
 
     </div>   
