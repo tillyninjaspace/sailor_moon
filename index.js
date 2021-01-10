@@ -24,7 +24,7 @@ server.use((req, res, next) => {
 });
 
 
-//need BELOW
+//for REFERENCE BELOW -- moved to routes already
 // const EMAIL = process.env.EMAIL
 // const PASSWORD = process.env.PASSWORD
 

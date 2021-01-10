@@ -16,5 +16,3 @@ export function fetchProducts() {
       });
   };
 }
-
-// "https://api.jikan.moe/v3/search/anime?q=sailormoon&type=tv&limit=6"

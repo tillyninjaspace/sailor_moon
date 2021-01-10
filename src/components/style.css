@@ -101,6 +101,10 @@
     text-align: center;
   }
 
+  .nav:active {
+    color: rgb(212, 41, 161);
+  }
+
   .navWrapper {
       display: flex;
       justify-content: center;
@@ -209,9 +213,10 @@
     display: grid;
     grid-template-rows: repeat(3, minmax(0, 1fr));
     height: 100%;
-    border: 1px solid white;
+    border: 5px solid white;
     margin: 1em;
     margin-top: 1em;
+    padding-top: 1em;
   }
 
   .main section {
@@ -234,3 +239,5 @@
   .main h2 {
     padding: 10px;
   }
+
+  /* end of gridCSS */

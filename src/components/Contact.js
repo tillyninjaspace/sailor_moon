@@ -18,7 +18,7 @@ const ContactForm = () => {
 
     //THUNK
     const sailorMoonProducts = useSelector(state => state.data);
-    console.log("Sailor Moon Products", sailorMoonProducts)
+    // console.log("Sailor Moon Products", sailorMoonProducts)
     //end of new for REDUX
 
     const handleSubmit = async (event) => {
