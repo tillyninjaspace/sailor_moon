@@ -3,7 +3,6 @@ import {NavLink} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
 // import { fetchProducts } from '../actions/fetchData';
 
-  
 const getCurrentWishes = () => {
     return JSON.parse(localStorage.getItem('wishes'));
   };
@@ -16,7 +15,6 @@ const WishList = () => {
 
     const GuestWishes = () => {
         return (
-          
             <div className="guestWishes">
                 { wishList.length > 0 &&
                 <div>
@@ -32,11 +30,8 @@ const WishList = () => {
                         {wish}
                     </div>
                     )
-                }
-                
+                }  
             </div>
-            
-            
         )
     }
     //Testing
@@ -66,18 +61,14 @@ const WishList = () => {
                     <p style={{textAlign: "center"}}>{star.title}</p><p style={{textAlign: "center"}}><img  src={star.image_url}/></p></NavLink>
 
                     <span className="score">Score: {star.score}</span>
-                    {/* for adding wish */}
                     <form className="addForm"
                         onSubmit={ (event) => {
                             event.preventDefault();
                             setWishList([...wishList, newWish])
-                        }}
-                    >
+                        }}>
                         <button
-                            onClick={(event) => setNewWish(star.title)}
-                        >Add to Wishlist</button>
+                            onClick={(event) => setNewWish(star.title)}>Add to Wishlist</button>
                     </form>
-                    {/* //end of adding wish */}
                     </div>
                 )
              

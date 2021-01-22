@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import Loading from './Loading'
 
-
 //Reviews End Point example to fetch
 // https://api.jikan.moe/v3/anime/532/reviews
 //Full synopsis can be found https://api.jikan.moe/v3/anime/532
@@ -11,25 +10,21 @@ const Star = ({sailorMoonList}) => {
     const [ star, setStar ] = useState('')
     const [ loading, setLoading ] = useState(false)
 
-    //new
     const BASE_STAR_URL = 'https://api.jikan.moe/v3/anime/'
-
-    //end of new
 
     const {starId} = useParams()
     // const star = sailorMoonList.find(item => Number(starId) === item.mal_id)
     // console.log("what is the current star", star)
 
-    //new
     async function getStarCard() {
         const STAR_URL = BASE_STAR_URL + starId
-        console.log("What is star URL", STAR_URL)
+        // console.log("What is star URL", STAR_URL)
         try {
             setLoading(true)
             const response = await fetch(STAR_URL)
-            console.log("What's response", response)
+            // console.log("What's response", response)
             const result = await response.json()
-            console.log("What's result", result)
+            // console.log("What's result", result)
             return result
         } catch(error) {
             console.error(error)
@@ -42,16 +37,13 @@ const Star = ({sailorMoonList}) => {
         getStarCard()
        
         .then(card => {
-            console.log("card", card)
+            // console.log("card", card)
             setStar(card)
         })
         .catch(error => {
             console.error(error)
         })
     },[])
-
-
-    //end of new
 
     return (
         <div className="singleCard" style={{marginTop: "2em"}}>
@@ -60,13 +52,10 @@ const Star = ({sailorMoonList}) => {
             <h2>Star Card</h2>
             <h3 style={{paddingBottom: "10px"}}>{star.title}</h3>
             <img src={star.image_url}/>
-            {/* <p>Number of Episodes: {star.episodes}</p> */}
-
             { star.episodes != 1 ? 
                     <p>Number of Episodes: {star.episodes}</p>
                      : ''
                     }
-            {/* <p>Rated: {star.rated}</p> */}
             <p>Rating: {star.rating}</p>
             <p className="score" style={{paddingLeft: "3px", paddingRight: "3px"}}> {star.score > 0 ? `Review Score: ${star.score}` : `Score: No Score Available/Not Aired Yet` }</p>
             <p>Synopsis: {star.synopsis}</p>

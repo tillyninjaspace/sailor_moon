@@ -43,6 +43,9 @@ apiRouter.post("/send", (req, res) => {
         res.json({ status: "ERROR. Message not sent." });
       } else {
         res.json({ status: "Message Sent." });
+        //added on Jan 18
+        console.log("Message successfully sent")
+        //end Jan 18
       }
     });
 });

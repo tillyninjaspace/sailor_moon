@@ -11,7 +11,7 @@ const ContactForm = () => {
     const [ message, setMessage ] = useState('')
     const [ status, setStatus ] = useState('Send')
 
-    //new for REDUX
+    //Testing for REDUX
     const counter = useSelector(state => state.counter);
     const isLogged = useSelector(state => state.loggedReducer);
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const ContactForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log("submit", name, email, message)
+        // console.log("submit", name, email, message)
         setStatus("Sending...");
 
         let response = await fetch('/api/send', {
@@ -33,7 +33,7 @@ const ContactForm = () => {
         },
         body: JSON.stringify({name, email, message})
         });
-        console.log("response of message". response)
+        // console.log("response of message". response)
         
         let result = await response.json()
         if (result.status === "Message Sent.") { 
@@ -44,7 +44,7 @@ const ContactForm = () => {
         } else {
             setStatus(result.status)
         }
-        console.log("result", result)
+        // console.log("result", result)
     };
 
     return (

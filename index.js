@@ -23,6 +23,16 @@ server.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 
+//added on Jan 18
+server.get('*', (req, res, next) => {
+  res.status(404).send('Page Does Not Exist')
+});
+
+server.use((error, req, res, next) => {
+  console.error(error)
+  res.send({error: 'You have encountered an error'})
+});
+//end on Jan 18
 
 //for REFERENCE BELOW -- moved to routes already
 // const EMAIL = process.env.EMAIL
