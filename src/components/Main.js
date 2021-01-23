@@ -75,7 +75,7 @@ const Main = () => {
 
     return (
       <>
-        <p style={{padding: "1em", textAlign: "center"}}>Welcome to Pretty Sailor Scouts! This website is built by a Sailor Moon fan using React. Enjoy, and a picture card section is coming!</p>
+        <p style={{padding: "1em", textAlign: "center"}}>Welcome to Pretty Sailor Scouts! This website is built by a Sailor Moon fan using React. Find your favorite Star Card.</p>
         <div className="main">
             <section className="movies">
             <h2>Sailor Moon Movies</h2>

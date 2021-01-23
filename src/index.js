@@ -14,6 +14,8 @@ import Star from './components/Star'
 import Main from "./components/Main";
 import WishList from './components/WishList'
 
+import Loading from './components/Loading'
+
 // //for REDUX EXAMPLE 1: 
 //     import {createStore} from 'redux';
 
@@ -77,14 +79,21 @@ import { fetchProducts } from './actions/fetchData';
     //end of REDUX EXAMPLE 2
 
 const App = () => {
-
+    const [ initialLoading, setInitialLoading ] = useState(false)
 
     //redux
     const dataList = useSelector(state => state.data.item);
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(fetchProducts())
+            setInitialLoading(true)
+        try { 
+            dispatch(fetchProducts())
+        } catch {
+            console.error(error)
+        } finally {
+            setInitialLoading(false)
+        }
     }, []);   
     //end of redux
 
@@ -141,6 +150,7 @@ const App = () => {
           
             
             <Footer />
+            { initialLoading? <Loading /> : ''}
         </div>
        
     )

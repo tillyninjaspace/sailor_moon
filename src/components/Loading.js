@@ -4,7 +4,7 @@ const Loading = () => {
 
     return (
         <div className='loading'>
-            <h2>Looking for Star Card...</h2>
+            <h2>Looking through Star Cards...</h2>
         </div>
     )
 };
