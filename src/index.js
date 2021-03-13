@@ -82,13 +82,13 @@ const App = () => {
     const [ initialLoading, setInitialLoading ] = useState(false)
 
     //redux
-    const dataList = useSelector(state => state.data.item);
+    // const dataList = useSelector(state => state.data.item);
     const dispatch = useDispatch()
 
     useEffect( () => {
             setInitialLoading(true)
         try { 
-            dispatch(fetchProducts())
+           dispatch(fetchProducts())
         } catch {
             console.error(error)
         } finally {
@@ -97,6 +97,12 @@ const App = () => {
     }, []);   
     //end of redux
 
+//NOTE TO Tilly on Feb 12, 2021 >> not sure about keeping this
+    // useEffect(() => {
+    //         const timer = setTimeout(() =>  setInitialLoading(false), 1000);
+    //         return () => clearTimeout(timer);
+    // }, [setInitialLoading])
+//end NOTE
 
 //Original Fetch
     const [ sailorMoonList, setSailorMoonList ] = useState([])
@@ -118,13 +124,19 @@ const App = () => {
     useEffect( () => {
         getSailorMoon()
         .then(listings => {
+            setInitialLoading(true)
             setSailorMoonList(listings)
         })
         .catch(error => {
             console.log(error)
         })
+        .then( () => {
+            setInitialLoading(false)
+        })
     }, []);
 //end of Original Fetch    
+
+
 
     return (
        
@@ -140,7 +152,7 @@ const App = () => {
             {/* <NavLink to="/contact" className="nav">Contact</NavLink> */}
             
             </div>
-
+            { initialLoading? <Loading /> : ''}
             {/* <Main /> */}
             <Route exact path="/"><Main /></Route>
             <Route exact path="/sailor-moon-reviews"><Stars/></Route>
@@ -150,7 +162,6 @@ const App = () => {
           
             
             <Footer />
-            { initialLoading? <Loading /> : ''}
         </div>
        
     )

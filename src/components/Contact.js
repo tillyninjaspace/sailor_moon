@@ -26,7 +26,13 @@ const ContactForm = () => {
         // console.log("submit", name, email, message)
         setStatus("Sending...");
 
-        let response = await fetch('/api/send', {
+        //IMPORTANT KEEP Original
+        // let response = await fetch('/api/send', {
+        //END IMPORTANT KEEP
+//TESTING contact us form
+        let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
+//end of TESTING
+
         method: "POST",
         headers: {
             "Content-Type": "application/json"
