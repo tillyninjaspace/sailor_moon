@@ -23,14 +23,13 @@ const ContactForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        // console.log("submit", name, email, message)
         setStatus("Sending...");
-
-        //IMPORTANT KEEP Original
-        // let response = await fetch('/api/send', {
+console.log("Is this starting to work?")
+        //IMPORTANT KEEP Original for HEROKU DEPLOYMENT
+        let response = await fetch('/api/send', {
         //END IMPORTANT KEEP
-//TESTING contact us form
-        let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
+//TESTING contact us form only use this for GODADDY Hosting ACCOUNT ONLY!
+        // let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
 //end of TESTING
 
         method: "POST",
@@ -39,7 +38,7 @@ const ContactForm = () => {
         },
         body: JSON.stringify({name, email, message})
         });
-        // console.log("response of message". response)
+console.log("response of message". response)
         
         let result = await response.json()
         if (result.status === "Message Sent.") { 
@@ -50,7 +49,7 @@ const ContactForm = () => {
         } else {
             setStatus(result.status)
         }
-        // console.log("result", result)
+        console.log("result", result)
     };
 
     return (
