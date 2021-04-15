@@ -8,22 +8,29 @@ apiRouter.get('/sailormoon', (req,res, next) => {
 const EMAIL = process.env.EMAIL
 const PASSWORD = process.env.PASSWORD
 
+//new
+// let smtpTransport = require('nodemailer-smtp-transport');
+// const contactEmail = nodemailer.createTransport(smtpTransport({
+//end of new
+
+
+//KEEP BELOW
 const contactEmail = nodemailer.createTransport({
 
   //temporarily testing this for just deployment reasons
-    service: 'Godaddy',
-    host: "smtpout.secureserver.net",  
-    secure: false,
-    port: 465,
+  
+    // host: "smtpout.secureserver.net",  
+    // secure: true,
+    // port: 465,
 
 
   //end deploy test  
 
 
 //Working for gmail but need CAPTCHA link
-    // host: 'smtp.gmail.com',
-    // port: 587,
-    // secure: false,
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
 //Done Working    
     auth: {
       user: EMAIL,
