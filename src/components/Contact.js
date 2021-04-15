@@ -24,7 +24,7 @@ const ContactForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         setStatus("Sending...");
-console.log("Is this starting to work?")
+console.log("Contact Form is starting to send.")
         //IMPORTANT KEEP Original for HEROKU DEPLOYMENT
         let response = await fetch('/api/send', {
         //END IMPORTANT KEEP
@@ -38,7 +38,6 @@ console.log("Is this starting to work?")
         },
         body: JSON.stringify({name, email, message})
         });
-console.log("response of message". response)
         
         let result = await response.json()
         if (result.status === "Message Sent.") { 

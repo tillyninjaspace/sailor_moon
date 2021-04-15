@@ -9,9 +9,22 @@ const EMAIL = process.env.EMAIL
 const PASSWORD = process.env.PASSWORD
 
 const contactEmail = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
+
+  //temporarily testing this for just deployment reasons
+    service: 'Godaddy',
+    host: "smtpout.secureserver.net",  
     secure: false,
+    port: 465,
+
+
+  //end deploy test  
+
+
+//Working for gmail but need CAPTCHA link
+    // host: 'smtp.gmail.com',
+    // port: 587,
+    // secure: false,
+//Done Working    
     auth: {
       user: EMAIL,
       pass: PASSWORD,
@@ -39,7 +52,11 @@ apiRouter.post("/send", (req, res) => {
              <p>Message: ${message}</p>`,
     };
     contactEmail.sendMail(mail, (error) => {
+  //Added on April 15, 2021    
+      console.log("What is mail:", mail)
       if (error) {
+//Added on APril 15, 2021
+        console.log("What is error", error)
         res.json({ status: "ERROR. Message not sent." });
       } else {
         res.json({ status: "Message Sent." });
