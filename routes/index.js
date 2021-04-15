@@ -62,7 +62,7 @@ apiRouter.post("/send", (req, res) => {
   //Added on April 15, 2021    
       console.log("What is mail:", mail)
       if (error) {
-//Added on APril 15, 2021
+  //Added on APril 15, 2021
         console.log("What is error", error)
         res.json({ status: "ERROR. Message not sent." });
       } else {

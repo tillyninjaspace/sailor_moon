@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 
-//new for REDUX
+    //new for REDUX
     import {useSelector, useDispatch} from 'react-redux';
     import {increment, decrement} from '../actions'
-//end of NEW for REDUX
+    //end of NEW for REDUX
 
 const ContactForm = () => {
     const [ name, setName ] = useState('')
@@ -24,13 +24,13 @@ const ContactForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         setStatus("Sending...");
-console.log("Contact Form is starting to send.")
+        console.log("Contact Form is starting to send.")
         //IMPORTANT KEEP Original for HEROKU DEPLOYMENT
-        let response = await fetch('/api/send', {
+        // let response = await fetch('/api/send', {
         //END IMPORTANT KEEP
-//TESTING contact us form only use this for GODADDY Hosting ACCOUNT ONLY!
-        // let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
-//end of TESTING
+        //GODADDY DEPLOY SWTICH contact us form only use this for GODADDY Hosting ACCOUNT ONLY!
+        let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
+        //end of GODADDY DEPLOY SWITCH
 
         method: "POST",
         headers: {
