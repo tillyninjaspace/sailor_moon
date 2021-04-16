@@ -8,30 +8,10 @@ apiRouter.get('/sailormoon', (req,res, next) => {
 const EMAIL = process.env.EMAIL
 const PASSWORD = process.env.PASSWORD
 
-//new
-// let smtpTransport = require('nodemailer-smtp-transport');
-// const contactEmail = nodemailer.createTransport(smtpTransport({
-//end of new
-
-
-//KEEP BELOW
 const contactEmail = nodemailer.createTransport({
-
-  //temporarily testing this for just deployment reasons
-  
-    // host: "smtpout.secureserver.net",  
-    // secure: true,
-    // port: 465,
-
-
-  //end deploy test  
-
-
-//Working for gmail but need CAPTCHA link
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
-//Done Working    
     auth: {
       user: EMAIL,
       pass: PASSWORD,
@@ -58,18 +38,14 @@ apiRouter.post("/send", (req, res) => {
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
     };
-    contactEmail.sendMail(mail, (error) => {
-  //Added on April 15, 2021    
-      console.log("What is mail:", mail)
+    contactEmail.sendMail(mail, (error) => {  
+      console.log("Mail Message:", mail)
       if (error) {
-  //Added on APril 15, 2021
-        console.log("What is error", error)
+        console.log("Current Error: ", error)
         res.json({ status: "ERROR. Message not sent." });
       } else {
         res.json({ status: "Message Sent." });
-        //added on Jan 18
         console.log("Message successfully sent")
-        //end Jan 18
       }
     });
 });

@@ -28,7 +28,7 @@ const ContactForm = () => {
         //IMPORTANT KEEP Original for HEROKU DEPLOYMENT
         // let response = await fetch('/api/send', {
         //END IMPORTANT KEEP
-        //GODADDY DEPLOY SWTICH contact us form only use this for GODADDY Hosting ACCOUNT ONLY!
+        //GODADDY & AMPLIFY DEPLOY SWTICH contact us form only use this for GODADDY Hosting ACCOUNT & AMPLIFY ONLY!
         let response = await fetch('https://sailormoon-prettyscouts.herokuapp.com/api/send', {
         //end of GODADDY DEPLOY SWITCH
 
