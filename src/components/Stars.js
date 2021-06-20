@@ -30,7 +30,7 @@ const Stars = () => {
                      : ''
                     }
                     <p>Rated: {star.rated}</p>
-                    <NavLink to={"/sailor-moon-reviews/" + star.mal_id} className="nav" style={{textAlign: "center"}} >See Star Card</NavLink>
+                    <NavLink to={"/sailor-moon-reviews/" + star.mal_id} className="nav"><span style={{marginLeft: "1.1em"}}>See Star Card Details</span></NavLink>
                 </div>
                 )
             }

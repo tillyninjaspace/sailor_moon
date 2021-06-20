@@ -3,6 +3,8 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import { useSelector} from 'react-redux';
 // import {useSelector, useDispatch} from 'react-redux'
+import {Button} from 'react-bootstrap';
+import Spinner from 'react-bootstrap/Spinner'
 
 const Main = () => {
 
@@ -10,7 +12,7 @@ const Main = () => {
 
     return (
       <>
-        <p style={{padding: "1em", textAlign: "center"}}>Welcome to Pretty Sailor Scouts! Find your favorite Star Card.</p>
+        <p style={{padding: "1em", textAlign: "center"}}>Find your favorite Sailor Moon manga and films and their review scores.</p>
         <div className="main">
             <section className="movies">
             <h2>Sailor Moon Movies</h2>
@@ -23,7 +25,8 @@ const Main = () => {
                     <NavLink to={"/sailor-moon-reviews/" + movie.mal_id} style={{textDecoration: "none"}}>
                     <img src={movie.image_url}/>{movie.title}</NavLink>
                 </div>
-              )
+              ) || 
+              <Spinner animation="grow" />
             }
             </section>
             <section className="tv">
@@ -37,7 +40,8 @@ const Main = () => {
                     <NavLink to={"/sailor-moon-reviews/" + tv.mal_id} style={{textDecoration: "none"}}>
                     <img src={tv.image_url}/>{tv.title}</NavLink>
                 </div>
-              )
+              ) || 
+              <Spinner animation="grow" />
             } 
             </section>
             <section className="notAired">
@@ -51,7 +55,8 @@ const Main = () => {
                     <NavLink to={"/sailor-moon-reviews/" + special.mal_id} style={{textDecoration: "none"}}>
                     <img src={special.image_url}/>{special.title}</NavLink>
                 </div>
-              )
+              ) || 
+              <Spinner animation="grow" />
             } 
             </section>
         </div>
