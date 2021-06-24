@@ -20,7 +20,7 @@ const WishList = () => {
                 { wishList.length > 0 &&
                 <div>
 
-                <span style={{fontWeight: "bolder", fontSize: "1.5em"}}>
+                <span style={{fontWeight: "bolder", fontSize: "1.2em"}}>
                     {wishList.length > 1? `I have ${wishList.length} wishes ` : `${wishList.length} wish `}
                 </span>
                 <button 
