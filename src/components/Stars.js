@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './style.css'
 
 //redux
@@ -20,8 +20,8 @@ const Stars = () => {
             {   sailorMoonList && 
                 sailorMoonList.map((star) => <div className="starCard" key={star.mal_id}>
                     <div style={{textAlign: "center"}}>
-                    <NavLink to={"/sailor-moon-reviews/" + star.mal_id} style={{textDecoration: "none"}}>{star.title}
-                    <img src={star.image_url}/></NavLink>
+                    <Link to={"/sailor-moon-reviews/" + star.mal_id} style={{textDecoration: "none"}}>{star.title}
+                    <img src={star.image_url}/></Link>
                     </div>
                     <p className="starInfo"><span>Type: {star.type}</span><span className="score">Score: {star.score}</span></p>
 
@@ -30,7 +30,7 @@ const Stars = () => {
                      : ''
                     }
                     <p>Rated: {star.rated}</p>
-                    <NavLink to={"/sailor-moon-reviews/" + star.mal_id} className="nav"><span style={{marginLeft: "1.1em"}}>See Star Card Details</span></NavLink>
+                    <Link to={"/sailor-moon-reviews/" + star.mal_id} className="starLink"><span style={{marginLeft: "1.1em"}}>See Star Card Details</span></Link>
                 </div>
                 )
             }

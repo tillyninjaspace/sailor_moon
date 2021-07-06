@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
 // import { fetchProducts } from '../actions/fetchData';
 
@@ -53,6 +53,8 @@ const WishList = () => {
     const Modal = () => {
        return (
        <div className="wishListModal">
+           <p style={{backgroundColor: "black", width: "20px", paddingLeft: "5px", paddingRight:"3px", cursor: "pointer"}}
+           onClick={ () => setOpenModal(false)}>x</p>
            <GuestWishes style={{padding: "2em"}} />
        </div>
        )
@@ -70,8 +72,8 @@ const WishList = () => {
                         display: "flex", flexDirection: "column", alignItems: "center"}}
                     className="pickList">
 
-                    <NavLink to={"/sailor-moon-reviews/" + star.mal_id} style={{textDecoration: "none"}}>
-                    <p style={{textAlign: "center"}}>{star.title}</p><p style={{textAlign: "center"}}><img  src={star.image_url}/></p></NavLink>
+                    <Link to={"/sailor-moon-reviews/" + star.mal_id} style={{textDecoration: "none"}}>
+                    <p style={{textAlign: "center"}}>{star.title}</p><p style={{textAlign: "center"}}><img  src={star.image_url}/></p></Link>
 
                     <span className="score">Score: {star.score}</span>
                     <form className="addForm"

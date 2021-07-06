@@ -65,7 +65,7 @@
       color: white;
   }
 
-  a:visited {
+ a:visited {
       color: yellow;
   }
 
@@ -101,6 +101,7 @@
     margin-right: 10px;
     text-decoration: none;
     text-align: center;
+    font-size: 20px;
   }
 
   .nav:active {
@@ -262,3 +263,11 @@
   }
 
   /* end of gridCSS */
+
+  .starLink {
+    text-align: center;
+    background-color: #FF3992;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px;
+  }
