@@ -23,7 +23,7 @@ const ContactForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        setStatus("Sending...");
+        setStatus("Sending...Please wait up to 30 seconds.");
         console.log("Contact Form is starting to send.")
         //IMPORTANT KEEP Original for HEROKU DEPLOYMENT
         // let response = await fetch('/api/send', {
@@ -55,7 +55,7 @@ const ContactForm = () => {
     <div>   
         <form className="contactUsForm" style={{margin: "1em"}} onSubmit={handleSubmit}>
             <label>Name</label>
-            <input required placeholder='Your Name' value={name} onChange={(event) => setName(event.target.value)}></input>
+            <input required placeholder='Your Name' value={name} onChange={(event) => setName(event.target.value)}/>
             <label>Email Address</label>
             <input type="email" required placeholder='Your Email' value={email} onChange ={(event) => setEmail(event.target.value)}></input>
             <label>Message</label>
