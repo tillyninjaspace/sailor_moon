@@ -1,9 +1,6 @@
-//Take 3
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import { useSelector} from 'react-redux';
-// import {useSelector, useDispatch} from 'react-redux'
-import {Button} from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner'
 
 const Main = () => {

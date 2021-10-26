@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux'
-// import { fetchProducts } from '../actions/fetchData';
 
 const getCurrentWishes = () => {
     return JSON.parse(localStorage.getItem('wishes'));
@@ -38,13 +37,6 @@ const WishList = () => {
             </div>
         )
     }
-    //Testing
-
-    // const dispatch = useDispatch()
-
-    // useEffect( () => {
-    //     dispatch(fetchProducts())
-    // }, []);  
 
     useEffect(() => {
         localStorage.setItem('wishes', JSON.stringify(wishList));
@@ -79,14 +71,14 @@ const WishList = () => {
                     <form className="addForm"
                         onSubmit={ (event) => {
                             event.preventDefault();
-                            //new
+                        
                             const found = wishList.find(existing => {
                                 if (existing == star.title){
                                     return true
                                 }
                                 })
 
-                            //end new
+                         
 
                             if (!found) {
                             setWishList([...wishList, newWish])
@@ -99,32 +91,11 @@ const WishList = () => {
                         }}>
                         <button
                             onClick={(event) => {
-                            // const found = wishList.find(existing => {
-                            //     console.log(wishList)
-                            //     if (existing == star.title){
-                            //         return true
-                            //     }
-                            //         console.log("hello, looking", existing,
-                            //         "star.title:", star.title)
-                            //     })
-                            //     console.log("Did I find it? ", found)
-
-                                // if (found) {
-                                //     return;
-                                // } else {
                                     setNewWish(star.title)
-                                // }
-                                
-                          
-                                
-                            // )
-                            
                             }}>Add to Wishlist</button>
                     </form>
                     </div>
-                      
                 )
-             
             }
             </div>
             { openModal && wishList.length? <Modal /> : ''}

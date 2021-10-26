@@ -2,16 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.css'
 
-//redux
 import {useSelector} from 'react-redux';
-//redux
 
 const Stars = () => {
 
-    //redux
     const sailorMoonReduxData = useSelector(state => state.data.item)
     const sailorMoonList = sailorMoonReduxData.results
-    //end of redux
     
     return (
         <>

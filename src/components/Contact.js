@@ -1,9 +1,5 @@
 import React, {useState} from 'react';
-
-    //new for REDUX
-    import {useSelector, useDispatch} from 'react-redux';
-    import {increment, decrement} from '../actions'
-    //end of NEW for REDUX
+import {useSelector, useDispatch} from 'react-redux';
 
 const ContactForm = () => {
     const [ name, setName ] = useState('')
@@ -15,11 +11,6 @@ const ContactForm = () => {
     const counter = useSelector(state => state.counter);
     const isLogged = useSelector(state => state.loggedReducer);
     const dispatch = useDispatch()
-
-    //THUNK
-    const sailorMoonProducts = useSelector(state => state.data);
-    // console.log("Sailor Moon Products", sailorMoonProducts)
-    //end of new for REDUX
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -62,18 +53,6 @@ const ContactForm = () => {
             <input required placeholder='Type Message Here' value={message} onChange={(event) => setMessage(event.target.value)}></input>
             <button>{status}</button>
         </form>
-
-        {/* for redux */}
-            {/* <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <h2>Redux Test Section</h2>
-            <h2>Counter: {counter}</h2>
-            <button onClick={()=> dispatch(increment())}>+</button>
-            <button onClick={()=> dispatch(decrement())}>-</button>
-            {isLogged ? 
-            <h3>Valuable Information if Logged In</h3>
-            : '' }
-            </div> */}
-        {/* end of for redux */}
 
     </div>   
     )

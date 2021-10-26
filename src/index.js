@@ -10,79 +10,30 @@ import Footer from './components/Footer'
 import Stars from './components/Stars'
 import Contact from './components/Contact'
 import Star from './components/Star'
-
-import Main from "./components/Main";
+import Main from './components/Main'
 import WishList from './components/WishList'
-
 import Loading from './components/Loading'
 
-// //for REDUX EXAMPLE 1: 
-//     import {createStore} from 'redux';
+import {createStore,
 
-//     ACTION
-//     const increment = () => {
-//         return {
-//             type: 'INCREMENT'
-//         }
-//     };
-
-//     const decrement =() => {
-//         return {
-//             type: 'DECREMENT'
-//         }
-//     };
-
-//     //REDUCER
-//     const counter = (state = 0, action) => {
-//         switch(action.type) {
-//             case 'INCREMENT':
-//                 return state + 1;
-        
-//             case 'DECREMENT':
-//                 return state - 1
-//         }
-//     }; 
-
-//     let store = createStore(counter);
-
-//     store.subscribe(()=>  console.log(store.getState()));
-
-//     //DISPATCH
-//     store.dispatch(increment());
-//     store.dispatch(decrement());
-//     store.dispatch(decrement());
-//      //end of REDUX
-
-
-    //REDUX EXAMPLE 2
-    import {createStore,
-        //for thunk applyMiddleware
-            applyMiddleware
-            } from 'redux';
-    import thunk from 'redux-thunk'; 
-    import { composeWithDevTools } from 'redux-devtools-extension';     
-    import allReducers from './reducers';
-    import { Provider } from 'react-redux';
-    //for fetchData
-    import { useSelector, useDispatch } from "react-redux";
+        applyMiddleware
+        } from 'redux';
+import thunk from 'redux-thunk'; 
+import { composeWithDevTools } from 'redux-devtools-extension';     
+import allReducers from './reducers';
+import { Provider } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from './actions/fetchData';
-//end for fetchData
-    const composedEnhancer = composeWithDevTools(applyMiddleware(thunk))
+const composedEnhancer = composeWithDevTools(applyMiddleware(thunk))
 
-    const store = createStore(
-        allReducers,
-        composedEnhancer
-        // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
+const store = createStore(
+    allReducers,
+    composedEnhancer
+    )
 
- 
-    //end of REDUX EXAMPLE 2
 
 const App = () => {
     const [ initialLoading, setInitialLoading ] = useState(false)
-
-    //redux
-    // const dataList = useSelector(state => state.data.item);
     const dispatch = useDispatch()
 
     useEffect( () => {
@@ -95,7 +46,7 @@ const App = () => {
             setInitialLoading(false)
         }
     }, []);   
-    //end of redux
+
 
 //NOTE TO Tilly on Feb 12, 2021 >> not sure about keeping this
     // useEffect(() => {
@@ -107,14 +58,10 @@ const App = () => {
 //Original Fetch
     const [ sailorMoonList, setSailorMoonList ] = useState([])
     async function getSailorMoon() {
-        // const URL = `https://api.jikan.moe/v3/search/anime?q=sailormoon`
         const URL =`https://api.jikan.moe/v3/search/anime?q=sailormoon&limit=17`
         try {
             const results = await fetch(URL)
-            // console.log("Sailor Moon results", results)
             const resultsJson = await results.json()
-            // console.log("What is Sailor Moon json", resultsJson)
-            // console.log("What are the list of INSIDE STARS results", resultsJson.results)
             return resultsJson.results
         } catch (error) {
             console.error(error)
@@ -136,30 +83,23 @@ const App = () => {
     }, []);
 //end of Original Fetch    
 
-
-
     return (
        
         <div className="headerDiv">
             <p style={{textAlign: "center", maxHeight: "160px"}}><img src="/sailormoonprettyscoutslogo.png" /></p>
             <h1>Pretty Sailor Scouts</h1>
-            {/* <p>{dataList}</p> */}
             <div className="navWrapper">
             <NavLink to="/" className="nav">Home</NavLink>
             <NavLink to="/sailor-moon-reviews" className="nav">Sailor Moon Scores</NavLink>
-            {/* <a className="nav" href="https://www.amazon.com/s?k=sailor+moon+merchandise&amp;ref=nb_sb_noss_2&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=d645d325aab67aeb13bceff654c6dc40&camp=1789&creative=9325" target="_blank">Sailor Moon Merchandise</a> */}
             <NavLink to="/wishlist" className="nav">My Wishlist</NavLink>
             
             </div>
             { initialLoading? <Loading /> : ''}
-            {/* <Main /> */}
             <Route exact path="/"><Main /></Route>
             <Route exact path="/sailor-moon-reviews"><Stars/></Route>
             <Route path="/contact"><Contact/></Route>
             <Route exact path="/wishlist"><WishList/></Route>
             <Route path="/sailor-moon-reviews/:starId"><Star sailorMoonList={sailorMoonList}/></Route>
-          
-            
             <Footer />
         </div>
        
@@ -177,4 +117,4 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-//Provider to is above for REDUX in the render
+//Provider above is for REDUX in the render

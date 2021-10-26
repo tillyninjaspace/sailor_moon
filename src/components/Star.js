@@ -13,18 +13,13 @@ const Star = ({sailorMoonList}) => {
     const BASE_STAR_URL = 'https://api.jikan.moe/v3/anime/'
 
     const {starId} = useParams()
-    // const star = sailorMoonList.find(item => Number(starId) === item.mal_id)
-    // console.log("what is the current star", star)
 
     async function getStarCard() {
         const STAR_URL = BASE_STAR_URL + starId
-        // console.log("What is star URL", STAR_URL)
         try {
             setLoading(true)
             const response = await fetch(STAR_URL)
-            // console.log("What's response", response)
             const result = await response.json()
-            // console.log("What's result", result)
             return result
         } catch(error) {
             console.error(error)
@@ -37,7 +32,6 @@ const Star = ({sailorMoonList}) => {
         getStarCard()
        
         .then(card => {
-            // console.log("card", card)
             setStar(card)
         })
         .catch(error => {
@@ -67,7 +61,6 @@ const Star = ({sailorMoonList}) => {
             "https://www.amazon.com/s?k=sailor+moon+movie+and+shows&amp;ref=nb_sb_noss&_encoding=UTF8&tag=sailormoon00e-20&linkCode=ur2&linkId=4032d4e98546b34ef7ff608b3f8e8405&camp=1789&creative=9325"
             target="_blank">Find Sailor Moon items like {star.title} on Amazon</a></p>
 
-            {/* <p style={{textAlign: "center"}} className="nav"><a style={{textDecoration: "none"}} href={star.url} target="_blank">See Full Details</a></p> */}
             <p style={{textAlign: "center"}} className="nav"><a style={{textDecoration: "none"}} href="/sailor-moon-reviews">See All Sailor Moon Manga (TV) and Film Scores</a></p>
             </>
             }
