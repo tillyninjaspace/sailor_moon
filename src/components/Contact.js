@@ -61,10 +61,18 @@ const ContactForm = () => {
 const Contact = () => {
 
     return (
+        <>
         <div>
             <h2>Contact Us</h2>
             <ContactForm />
         </div>
+        <div style={{textAlign: "center"}}>
+            <iframe style={{"width":"120px", "height":"240px", "marginWidth":"0"}} src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=sailormoon00e-20&language=en_US&marketplace=amazon&region=US&placement=B08CBQJ2K9&asins=B08CBQJ2K9&linkId=ae54a4330f344f236fd05b95ea0810da&show_border=true&link_opens_in_new_window=true"></iframe>
+            <iframe style={{"width":"120px", "height":"240px", "marginWidth":"0"}} src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=sailormoon00e-20&language=en_US&marketplace=amazon&region=US&placement=B08L9RQ7FW&asins=B08L9RQ7FW&linkId=2dfdf6c48d610de18681125cb49e9309&show_border=true&link_opens_in_new_window=true"></iframe>
+            <iframe style={{"width":"120px", "height":"240px", "marginWidth":"0"}} src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=sailormoon00e-20&language=en_US&marketplace=amazon&region=US&placement=B093VJ3JXQ&asins=B093VJ3JXQ&linkId=396b15df06ec9ff5fa012e9d2d538847&show_border=true&link_opens_in_new_window=true"></iframe>
+            <iframe style={{"width":"120px", "height":"240px", "marginWidth":"0"}} src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=sailormoon00e-20&language=en_US&marketplace=amazon&region=US&placement=B09G69F68M&asins=B09G69F68M&linkId=27d14c1e9a4ac82307c15b0f08fbeff6&show_border=true&link_opens_in_new_window=true"></iframe>
+        </div>
+        </>
     )
 };
 
