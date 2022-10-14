@@ -3,14 +3,14 @@ import {useParams} from 'react-router-dom';
 import Loading from './Loading'
 
 //Reviews End Point example to fetch
-// https://api.jikan.moe/v3/anime/532/reviews
+//https://api.jikan.moe/v3/anime/532/reviews
 //Full synopsis can be found https://api.jikan.moe/v3/anime/532
 
 const Star = ({sailorMoonList}) => {
     const [ star, setStar ] = useState('')
     const [ loading, setLoading ] = useState(false)
 
-    const BASE_STAR_URL = 'https://api.jikan.moe/v3/anime/'
+    const BASE_STAR_URL =     'https://api.jikan.moe/v4/anime/'
 
     const {starId} = useParams()
 
@@ -20,7 +20,7 @@ const Star = ({sailorMoonList}) => {
             setLoading(true)
             const response = await fetch(STAR_URL)
             const result = await response.json()
-            return result
+            return result.data
         } catch(error) {
             console.error(error)
         } finally {
@@ -44,8 +44,8 @@ const Star = ({sailorMoonList}) => {
             { star && 
             <>
             <h2>Star Card</h2>
-            <h3 style={{paddingBottom: "10px"}}>{star.title}</h3>
-            <img src={star.image_url}/>
+            <h4 style={{paddingBottom: "10px"}}>{star.title}</h4>
+            <img src={star.images.jpg.image_url}/>
             { star.episodes != 1 ? 
                     <p>Number of Episodes: {star.episodes}</p>
                      : ''

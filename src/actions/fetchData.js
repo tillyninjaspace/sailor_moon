@@ -6,7 +6,7 @@ export function fetchProducts() {
     dispatch(fetchDataRequest());
     axios
       .get(
-        "https://api.jikan.moe/v3/search/anime?q=sailormoon&limit=17"
+        "https://api.jikan.moe/v4/anime?q=sailor%20moon&sfw"
       )
       .then(response => {
         dispatch(fetchDataSuccess(response.data));

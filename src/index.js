@@ -58,11 +58,11 @@ const App = () => {
 //Original Fetch
     const [ sailorMoonList, setSailorMoonList ] = useState([])
     async function getSailorMoon() {
-        const URL =`https://api.jikan.moe/v3/search/anime?q=sailormoon&limit=17`
+        const URL =`https://api.jikan.moe/v4/anime?q=sailor%20moon&sfw`
         try {
             const results = await fetch(URL)
             const resultsJson = await results.json()
-            return resultsJson.results
+            return resultsJson.data
         } catch (error) {
             console.error(error)
         }
