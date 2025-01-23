@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom/client";
 import {
     BrowserRouter as Router,
     Route,
@@ -106,15 +107,16 @@ const App = () => {
     )
 };
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
     <Provider store={store}>
     <Router>
 
     <App />
 
     </Router>
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
 );
 
 //Provider above is for REDUX in the render
