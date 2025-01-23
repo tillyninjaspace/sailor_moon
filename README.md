@@ -5,6 +5,6 @@ Tech Stack: React with hooks, data from Jikan public API v4, Express, Node, Node
 App was created with React in 2021. In 2025, I udpdated the App to use Vite with Yarn to make changes and remove old ads.
 
 # sailor_moon
-See the front-end deployed link of my React App via AWS Amplify: https://master.d27cizkq724af1.amplifyapp.com or http://prettyscouts.com
+See the front-end deployed link of my React App: http://prettyscouts.com
 
 Front End Developer: Tilly Wright
